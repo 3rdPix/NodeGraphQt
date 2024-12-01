@@ -62,15 +62,18 @@ class _PropertiesList(QtWidgets.QTableWidget):
         )
         self.setVerticalScrollMode(QtWidgets.QAbstractItemView.ScrollMode.ScrollPerPixel)
 
-    def wheelEvent(self, event):
-        """
-        Args:
-            event (QtGui.QWheelEvent):
-        """
-        delta = event.angleDelta().y() * 0.2
-        self.verticalScrollBar().setValue(
-            self.verticalScrollBar().value() - delta
-        )
+    # No need for this as its intrinsic in QTableWidget
+    # Also this breaks because it tries to pass a float value
+    # which is not supported
+    # def wheelEvent(self, event):
+    #     """
+    #     Args:
+    #         event (QtGui.QWheelEvent):
+    #     """
+    #     delta = event.angleDelta().y() * 0.2
+    #     self.verticalScrollBar().setValue(
+    #         self.verticalScrollBar().value() - delta
+    #     )
 
 
 class _PropertiesContainer(QtWidgets.QWidget):
